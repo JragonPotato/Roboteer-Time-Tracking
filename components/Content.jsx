@@ -8,7 +8,6 @@ import contentData from '../utils/contentData';
 const Content = () => (
   <div className="next-steps my-5" data-testid="content">
     <h2 className="my-5 text-center" data-testid="content-title">
-      What can I do next?
     </h2>
     <Row className="d-flex justify-content-between" data-testid="content-items">
       {contentData.map((col, i) => (
@@ -16,10 +15,9 @@ const Content = () => (
           <h6 className="mb-3">
             <a href={col.link}>
               <FontAwesomeIcon icon="fa-solid fa-link" className="mr-2" />
-              {col.title}
             </a>
           </h6>
-          <p>{col.description}</p>
+          <p></p>
         </Col>
       ))}
     </Row>
