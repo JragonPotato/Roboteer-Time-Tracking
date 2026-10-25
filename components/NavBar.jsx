@@ -2,14 +2,6 @@
 
 import { useUser } from '@auth0/nextjs-auth0';
 import { useState } from 'react';
-import {
-  DropdownItem,
-  DropdownMenu,
-  DropdownToggle,
-  Nav,
-  NavItem,
-  UncontrolledDropdown
-} from 'reactstrap';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);

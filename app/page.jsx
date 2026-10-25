@@ -3,7 +3,6 @@
 import React from 'react';
 
 import Hero from '../components/Hero';
-import Content from '../components/Content';
 import { useUser } from '@auth0/nextjs-auth0';
 import { useState } from 'react';
 import Buttons from "../components/Buttons"
@@ -14,8 +13,9 @@ export default function Index() {
   return (
     <>
       {!isLoading && !user && (
-        <a className="btn" href="/auth/login">
+        <a className="btn" href="/auth/login"><span className="btn-text">
           Log in
+          </span>
         </a>
       )}
       {!isLoading && user && (

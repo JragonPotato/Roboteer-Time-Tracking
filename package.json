@@ -20,6 +20,7 @@
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/react-fontawesome": "^3.3.0",
+    "@neondatabase/serverless": "^1.2.0",
     "concurrently": "^8.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -32,8 +33,7 @@
     "next": "16.3.3",
     "nodemon": "^3.0.0",
     "react": "19.0.1",
-    "react-dom": "19.0.1",
-    "reactstrap": "^9.2.3"
+    "react-dom": "19.0.1"
   },
   "overrides": {
     "express-jwt": {
