@@ -1,6 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #18181A;
+}
+
+main {
+  font-family: var(--font-tomorrow);
+  color: white;
+  width: 100%;
 }
 
 code {
@@ -15,10 +26,6 @@ p code {
 
 #__next {
   height: 100%;
-}
-
-#nav-mobile {
-  min-height: 170px;
 }
 
 .nav-item.dropdown .dropdown-item {
@@ -39,9 +46,176 @@ p code {
 }
 
 .nav-container .logo {
-  background-image: url("https://cdn.auth0.com/quantum-assets/dist/latest/logos/auth0/auth0-lockup-en-onlight.svg");
+  background-image: url("https://pbs.twimg.com/profile_images/1839449450055696384/JXWVdGby.jpg");
   background-repeat: no-repeat;
   background-size: contain;
-  width: 110px;
-  height: 32px;
+  width: 400px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+ .logo {
+  background-image: url("https://pbs.twimg.com/profile_images/1839449450055696384/JXWVdGby.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 200px;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  align-content: center;
+  mix-blend-mode: screen;
+  @media screen and (width <= 900px) {
+    justify-self: center;
+  }
+}
+
+.navbar {
+  background-color: rgb(36, 36, 36);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  @media screen and (width <= 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer {
+  display: grid;
+  place-content: center;
+  background-color: rgb(36, 36, 36);
+  text-align: center;
+}
+
+.text {
+  font-size: 50pt;
+  color: white;
+  font-family: var(--font-revamped);
+  text-align: center;
+  display: inline-block;
+  align-self: center;
+
+  @media screen and (width <= 900px) {
+    font-size: 30pt;
+  }
+}
+
+.btn {
+  background-color: rgb(255, 0, 200);
+  color: white;
+  border-radius: 7px;
+  text-align: center;
+  padding: 5px 50px;
+  margin: 20px 50px 20px 50px;
+  font-size: 20pt;
+
+  display: flex;
+  flex-grow: 1;
+}
+
+.btn-text {
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: absolute;
+}
+
+.content {
+  flex-grow: 100;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.calendar {
+  background-color: rgb(50, 50, 50);
+  color: white;
+
+  justify-self: center;
+  align-self: center;
+
+  font-size: 20pt;
+  font-size: 20pt;
+  border-radius: 7px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0px;
+  margin: 0px;
+
+  text-align: center;
+}
+
+.calendar-holder {
+  background-color: rgb(50, 50, 50);
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-self: center;
+  align-self: center;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+.calendar-holder-holder {
+  background-color: rgb(50, 50, 50);
+
+  text-align: center;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+
+
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+
+
+}
+
+.calendar-holder-holder-holder {
+  margin: 10px 50px 10px 50px;
+  padding: 0px;
+
+  flex-grow: 1;
+}
+
+.real-calendar-holder-holder-holder {
+  margin: 10px 50px 10px 50px;
+  padding: 0px;
+
+  flex-grow: 1;
+}
+
+.title {
+  background-color: rgb(50, 50, 50);
+  color: white;
+
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  vertical-align: middle;
+
+  font-size: 20pt;
+  border-radius: 7px;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  width: 100%;
+  height: 100%;
 }
