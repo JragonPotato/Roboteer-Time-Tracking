@@ -2,8 +2,26 @@
 
 import { neon } from "@neondatabase/serverless"
 
-export async function putActivity(username: string, date: string, activity: string, timeHours: number, timeMinutes: number, crew: string) {
+export async function putActivity(username: string, date: string, activity: string, startTime: string, endTime: string, description: string, crew: string) {
     const sql = neon(process.env.DATABASE_URL as string)
-
-    sql`INSERT INTO activities (username, date, activity, timeHours, timeMinutes, crew) VALUES (${username}, ${date}, ${activity}, ${timeHours}, ${timeMinutes}, ${crew})`
+    await sql`
+        INSERT INTO activities (
+            username,
+            squareoncalendar,
+            activity,
+            starttime,
+            endtime,
+            description,
+            crew
+        ) 
+        VALUES (
+            ${username},
+            ${date},
+            ${activity},
+            ${startTime + ":00"},
+            ${endTime + ":00"},
+            ${description},
+            ${crew}
+        )
+    `
 }
