@@ -1,4 +1,0 @@
-new activity
-past activities
-stats
-log out

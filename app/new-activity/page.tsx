@@ -1,21 +1,50 @@
-import { ReactNode } from "react";
+'use client';
+
+import { useState } from 'react';
+import { putActivity } from '../../lib/actions';
 
 export default function Page() {
-    const utcDate = new Date(Date.now());
-    const minDate = new Date(Date.now() - 1209600000);
+    const utcDate = new Date(Date.now() - 6 * 3.6e+6);
+    const minDate = new Date(Date.now() - 1209600000 - 6 * 3.6e+6);
     let min = minDate.toISOString();
     let date = utcDate.toISOString();
-    let minToday = min.substring(0, 10)
+    let minToday = min.substring(0, 10);
     let today = date.substring(0, 10);
+
+    let time = date.substring(11, 16);
+
+    const [startTime, setStartTime] = useState(time);
     return (
-        <form className="btns" action={async (e: FormData) => {
-            "use server"
-            
+        <form className="btns" onSubmit={(e) => {
+            e.preventDefault();
+
+            let formData = new FormData(e.target);
+
+            putActivity(
+                "",
+                formData.get('date') as string,
+                formData.get('project_name') as string,
+                formData.get('start_time') as string,
+                formData.get('end_time') as string,
+                formData.get('description') as string,
+                formData.get('crew') as string);
         }}>
-            <div className="calendar-holder-holder-holder"><input className="title" type="text" placeholder="Title" /></div>
-            <div className="calendar-holder-holder-holder"><input className="calendar" type="date" defaultValue={today} min={minToday} max={today} /></div>
-            <div className="calendar-holder-holder-holder"><input className="title" placeholder="Description (Must be descriptive)" /></div>
-            <div className="calendar-holder-holder-holder"><select className="title"> <option value="">--Please choose an option--</option>
+            <div className="calendar-holder-holder-holder"><input className="title" type="text" placeholder="Project Name" name="project_name" /></div>
+            <div className="calendar-holder-holder-holder"><input className="title" type="date" defaultValue={today} min={minToday} max={today} name="date" /></div>
+            <div className="calendar-holder-holder-holder">
+                <div className="time-holder-holder">
+                    <div className="time-holder time-l">
+                        <label>Start Time</label>
+                        <input className="time time-l" type="time" defaultValue={time} onChange={x => { setStartTime(x.currentTarget.value) }} name="start_time" />
+                    </div>
+                    <div className="time-holder time-r">
+                        <label>End Time</label>
+                        <input className="time time-r" type="time" min={startTime} defaultValue={time} name="end_time" />
+                    </div>
+                </div>
+            </div>
+            <div className="calendar-holder-holder-holder"><input className="title" placeholder="Description (Must be descriptive)" name="description" /></div>
+            <div className="calendar-holder-holder-holder"><select className="title" name="crew" > <option value="">--Crew--</option>
                 <option value="software">Software</option>
                 <option value="electrical">Electrical</option>
                 <option value="strategy">Strategy</option>
@@ -26,17 +55,5 @@ export default function Page() {
                 <option value="leadership">Leadership Council</option></select></div>
             <button className="btn"><span className="btn-text">Submit</span></button>
         </form>
-    )
-}
-
-function Asdf({ children }: { children: ReactNode }) {
-    return (
-        <div className="real-calendar-holder-holder-holder">
-            <div className="calendar-holder-holder">
-                <div className="calendar-holder">
-                    {children}
-                </div>
-            </div>
-        </div>
     )
 }
