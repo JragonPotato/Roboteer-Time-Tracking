@@ -1,0 +1,78 @@
+branding:
+  favicon_url: >-
+    https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaYrKXPpRt1ZQtAEk2edSU15P2ZcBmTsIg2prz6tTScA&s=10
+  logo_url: >-
+    https://pbs.twimg.com/profile_images/1839449450055696384/JXWVdGby_400x400.jpg
+  templates: []
+themes:
+  - borders:
+      button_border_weight: 1
+      buttons_style: rounded
+      button_border_radius: 3
+      input_border_weight: 1
+      inputs_style: rounded
+      input_border_radius: 3
+      widget_corner_radius: 5
+      widget_border_weight: 0
+      show_widget_shadow: true
+    colors:
+      primary_button: '#ff00c8'
+      primary_button_label: '#ffffff'
+      secondary_button_border: '#c9cace'
+      secondary_button_label: '#ffffff'
+      read_only_background: '#1a1a1a'
+      base_focus_color: '#ff00c8'
+      base_hover_color: '#000000'
+      links_focused_components: '#ffffff'
+      header: '#ffffff'
+      body_text: '#ffffff'
+      widget_background: '#000000'
+      widget_border: '#c9cace'
+      input_labels_placeholders: '#ffffff'
+      input_filled_text: '#ffffff'
+      input_border: '#494b52'
+      input_background: '#1a1a1a'
+      icons: '#ffffff'
+      error: '#d03c38'
+      success: '#13a688'
+      captcha_widget_theme: dark
+    displayName: Unnamed Theme
+    fonts:
+      font_url: https://fonts.gstatic.com/s/tomorrow/v19/WBLmrETNbFtZCeGqgRXSe2A.woff2
+      reference_text_size: 16
+      title:
+        bold: false
+        size: 150
+      subtitle:
+        bold: false
+        size: 87.5
+      body_text:
+        bold: false
+        size: 87.5
+      buttons_text:
+        bold: false
+        size: 100
+      input_labels:
+        bold: false
+        size: 100
+      links:
+        bold: true
+        size: 87.5
+      links_style: normal
+    identifiers:
+      login_display: unified
+      otp_autocomplete: true
+      phone_display:
+        masking: mask_digits
+        formatting: international
+    page_background:
+      page_layout: center
+      background_color: '#1a1a1a'
+      background_image_url: ''
+    widget:
+      logo_position: center
+      logo_url: >-
+        https://pbs.twimg.com/profile_images/1839449450055696384/JXWVdGby_400x400.jpg
+      logo_height: 100
+      header_text_alignment: center
+      social_buttons_layout: bottom
