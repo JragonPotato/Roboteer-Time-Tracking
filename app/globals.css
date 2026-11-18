@@ -66,7 +66,7 @@ p code {
   align-content: center;
   mix-blend-mode: screen;
   @media screen and (width <= 900px) {
-    display: none;
+    display: none !important;
   }
 }
 
