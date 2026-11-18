@@ -1,0 +1,6 @@
+{
+    "AUTH0_INCLUDED_ONLY": [
+        "branding",
+        "themes"
+    ]
+}

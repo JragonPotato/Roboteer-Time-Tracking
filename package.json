@@ -28,6 +28,7 @@
     "express-jwt": "^8.5.1",
     "helmet": "^7.1.0",
     "highlight.js": "^11.9.0",
+    "jose": "^6.2.17",
     "jwks-rsa": "^3.1.0",
     "morgan": "^1.10.0",
     "next": "16.3.3",
