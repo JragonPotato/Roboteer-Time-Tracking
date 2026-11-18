@@ -1,44 +1,27 @@
-"use client"
+import StatsDisplay from "../../components/StatsDisplay";
+import {auth0} from "../../lib/auth0"
+import * as jose from "jose";
 
-import { useEffect, useRef, useState } from "react"
-import { search } from "../../lib/actions";
-import ActivityDisplay from "../../components/ActivityDisplay";
-import UserDisplay from "../../components/UserDisplay";
+export default async function Page() {
+    const user = await auth0.getSession();
 
-export default function Page() {
-    const [results, setResults] = useState<any>({});
-    const [query, setQuery] = useState("");
+    const res = await fetch(`https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`);
 
-    useEffect(() => {
-        search(query).then(x => {
-                let out = {}
+    const decoder = new TextDecoder("utf-8");
+    let read = ""
+    for await (const chunk of res.body) {
+        read += decoder.decode(chunk);
+    }
+    const { keys } = JSON.parse(read);
 
-                for (let i = 0; i < x.length; i++) {
-                    const value = x[i];
-                    if (!(value.username in out)) {
-                        out[value.username] = []
-                    }
-                    out[value.username].push(value);
-                }
-                setResults(out);
-            }
-        );
-    }, [query])
+    if (keys.length == 0) throw new Error("JWT Key not found");
+    const publicKey = await jose.importJWK(keys[0])
 
-    return (
-        <div>
-            <div className="stats-holder">
-                <div className="search-holder">
-                    <input className="stats-search" onChange={e => setQuery(e.target.value)} />
-                    <svg className="magnifying-glass" xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </div>
-                <div className="user-holder">
-                    {Array.from(Object.entries(results).map(([k, v], i) => <UserDisplay key={i} email={k} rows={v as any[]} />))}
-                </div>
-            </div>
-        </div>
-    );
+    const { payload, protectedHeader } = await jose.jwtVerify(user.tokenSet.idToken, publicKey, {
+
+    })
+
+    if (!payload["http://localhost:3000/roles"].includes("Admin")) throw new Error("Admin role not found");
+
+    return <StatsDisplay />
 }

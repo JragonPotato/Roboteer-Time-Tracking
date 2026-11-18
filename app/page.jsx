@@ -1,13 +1,11 @@
-'use client';
-
-import React from 'react';
+"use client"
 
 import { useUser } from '@auth0/nextjs-auth0';
-import { useState } from 'react';
 import Buttons from "../components/Buttons"
 
 export default function Index() {
   const { user, isLoading } = useUser();
+
   return (
     <>
       {!isLoading && !user && (

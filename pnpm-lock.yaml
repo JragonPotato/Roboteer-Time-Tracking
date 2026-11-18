@@ -44,6 +44,9 @@ importers:
       highlight.js:
         specifier: ^11.9.0
         version: 11.12.0
+      jose:
+        specifier: ^6.2.17
+        version: 6.2.17
       jwks-rsa:
         specifier: ^3.1.0
         version: 3.2.2(supports-color@5.5.0)
@@ -3008,8 +3011,8 @@ packages:
   jose@4.15.9:
     resolution: {integrity: sha512-1vUQX+IdDMVPj4k8kOxgUqlcK518yluMuGZwqlr44FS1ppZB/5GWh4rZG89erpOBOJjU/OBsnCVFfapsRz6nEA==}
 
-  jose@6.2.12:
-    resolution: {integrity: sha512-9NiFmJEex0sy2Dk58j2UGBSHgUs2ypF9eZSu4L6vjOX3Dp96Sw1F3uL+H+D1sx02jZZdzUT0HgvCy59CuvXcWw==}
+  jose@6.2.17:
+    resolution: {integrity: sha512-wOuK9V1yujQFH5S0ZWmLcDZN7+IKh9bUCC2ZPCf2HDlol3WWHy+PPyNjEI75FXRLMp3vDKQcupP59xhVU95hcg==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -4439,7 +4442,7 @@ snapshots:
     dependencies:
       '@edge-runtime/cookies': 5.0.2
       '@panva/hkdf': 1.2.1
-      jose: 6.2.12
+      jose: 6.2.17
       next: 16.3.3(@babel/core@7.29.7(supports-color@5.5.0))(@types/node@26.6.4)(react-dom@19.0.1(react@19.0.1))(react@19.0.1)
       oauth4webapi: 3.8.8
       openid-client: 6.8.8
@@ -7747,7 +7750,7 @@ snapshots:
 
   jose@4.15.9: {}
 
-  jose@6.2.12: {}
+  jose@6.2.17: {}
 
   js-tokens@4.0.0: {}
 
@@ -8172,7 +8175,7 @@ snapshots:
 
   openid-client@6.8.8:
     dependencies:
-      jose: 6.2.12
+      jose: 6.2.17
       oauth4webapi: 3.8.8
 
   optionator@0.9.4:
