@@ -1,8 +1,9 @@
 "use client"
-import { useSearchParams } from "next/navigation"
 
-export default function Page() {
-    const searchParams = useSearchParams();
+import { use } from "react";
+
+export default function Page({ searchParams }: { searchParams: Promise<{redirect: string}> }) {
+    const {redirect} = use(searchParams);
 
     return (
         <div className="completed-holder-holder">
@@ -12,7 +13,7 @@ export default function Page() {
                     <path d="M9 12l2 2 4-4"></path>
                 </svg>
                 <div className="big">Submission successful</div>
-                <a className="btn" href={searchParams.get("redirect")}>Return</a>
+                <a className="btn" href={redirect}>Return</a>
             </div>
         </div>
     )

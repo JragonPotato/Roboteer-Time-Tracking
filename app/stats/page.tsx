@@ -21,7 +21,7 @@ export default async function Page() {
 
     })
 
-    if (!payload["http://localhost:3000/roles"].includes("Admin")) throw new Error("Admin role not found");
+    if (!(payload["http://localhost:3000/roles"] as any).includes("Admin")) throw new Error("Admin role not found");
 
     return <StatsDisplay />
 }
