@@ -11,9 +11,9 @@ const NavBar = () => {
   return (
     <div className="navbar">
       <a className="logo btn" href="/"/>
-      <div className="text">
+      <a className="text" href="/">
         Time Tracker
-      </div>
+      </a>
       
       
     </div>
